@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
 //  res.send(req.dimensions);
   let inp = req.body.x + " " + req.body.y + " " + req.body.dimensions;
   console.log(inp);
-  cpp.runFile('G:\\LOI-code2.cpp', {stdin: inp, compileTimeout:10000}, (err, result) => {
+  cpp.runFile('LOI-code2.cpp', {stdin: inp, compileTimeout:10000}, (err, result) => {
     if(err){
         console.log(err);
     }
