@@ -4,7 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const x=1;
+
 app.use(bodyParser.json());
 
 app.use(cors({
@@ -13,20 +13,12 @@ app.use(cors({
   credentials: true,
 }));
 
-
-const sourcecode = `#include<iostream>
-using namespace std;
-int main(){
-	printf("HEllp");
-	return 0;
-}`
-
 var trace;
 
 app.post('/', (req, res) => {
 
-  let inp = req.body.x + " " + req.body.y + " " + req.body.dimensions;
-  cpp.runFile('LOI-code2.cpp', {stdin: inp, compileTimeout:10000}, (err, result) => {
+  let inp = req.body.n + " " + req.body.m + " " + req.body.x + " " + req.body.y;
+  cpp.runFile('LOI_Final.cpp', {stdin: inp, compileTimeout:10000}, (err, result) => {
     if(err){
         console.log(err);
     }
